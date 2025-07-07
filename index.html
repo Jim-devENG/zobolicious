@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zobolicious - We're Zobolicious</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "zobo-green": {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                200: "#bbf7d0",
+                300: "#86efac",
+                400: "#4ade80",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .text-lowercase {
+        text-transform: lowercase;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .portion-wheel {
+        background: conic-gradient(
+          #22c55e 0deg 72deg,
+          #16a34a 72deg 144deg,
+          #4ade80 144deg 216deg,
+          #86efac 216deg 288deg,
+          #15803d 288deg 360deg
+        );
+      }
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .rotate-animation {
+        animation: rotate 10s linear infinite;
+      }
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans text-gray-900 bg-white">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a href="#" class="text-2xl font-bold text-zobo-green-600"
+              >zobolicious</a
+            >
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden lg:block">
+            <div class="flex items-center space-x-8">
+              <!-- Simple dropdown for About -->
+              <div class="relative group">
+                <button
+                  class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                >
+                  about us
+                </button>
+                <div
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
+                >
+                  <div class="py-1">
+                    <a
+                      href="pages/about.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >our story</a
+                    >
+                    <a
+                      href="pages/b-corp.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >b-corp</a
+                    >
+                    <a
+                      href="pages/promise.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >our promise</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Simple dropdown for Products -->
+              <div class="relative group">
+                <button
+                  class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                >
+                  products
+                </button>
+                <div
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
+                >
+                  <div class="py-1">
+                    <a
+                      href="pages/products.html#smoothies"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >smoothies</a
+                    >
+                    <a
+                      href="pages/products.html#juices"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >juices</a
+                    >
+                    <a
+                      href="pages/products.html#kids"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >kids</a
+                    >
+                    <a
+                      href="pages/products.html#shots"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >shots</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Simple dropdown for Impact -->
+              <div class="relative group">
+                <button
+                  class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                >
+                  our impact
+                </button>
+                <div
+                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
+                >
+                  <div class="py-1">
+                    <a
+                      href="pages/people.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >people</a
+                    >
+                    <a
+                      href="pages/planet.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >planet</a
+                    >
+                    <a
+                      href="pages/nutrition.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >nutrition</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Direct links -->
+              <a
+                href="pages/careers.html"
+                class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+              >
+                careers
+              </a>
+              <a
+                href="pages/contact.html"
+                class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+              >
+                contact
+              </a>
+              <a
+                href="pages/big-knit.html"
+                class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+              >
+                big knit
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="lg:hidden">
+            <button
+              id="mobile-menu-button"
+              class="text-gray-700 hover:text-zobo-green-600 p-2"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden bg-white border-t border-gray-200"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="pages/about.html"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            >about us</a
+          >
+          <a
+            href="pages/products.html"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            >products</a
+          >
+          <a
+            href="pages/people.html"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            >people</a
+          >
+          <a
+            href="pages/planet.html"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            >planet</a
+          >
+          <a
+            href="pages/careers.html"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            >careers</a
+          >
+          <a
+            href="pages/contact.html"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            >contact</a
+          >
+          <a
+            href="pages/big-knit.html"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            >big knit</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-gradient min-h-screen flex items-center justify-center pt-16"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1
+          class="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 text-lowercase mb-8 fade-in"
+        >
+          we're zobolicious
+        </h1>
+        <p
+          class="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-12 fade-in"
+        >
+          Since we started doing business back in 2020, we've been committed to
+          doing it in the right way - standing up for what matters and leaving
+          things better than we find them. We've been a proud B Corp since 2022,
+          meaning we're officially using business as a force for good. And we
+          put people and the planet at the heart of everything we do, like
+          giving 10% of our profits to good causes and building our sustainable
+          drinks factory, the Zobolender.
+        </p>
+        <a
+          href="pages/about.html"
+          class="inline-block bg-zobo-green-600 hover:bg-zobo-green-700 text-white font-medium py-4 px-8 rounded-none transition-colors duration-200 text-lg fade-in"
+        >
+          the full story
+        </a>
+      </div>
+    </section>
+
+    <!-- TV Ad Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-gray-900 text-lowercase mb-12 fade-in"
+        >
+          we made an ad for the telly
+        </h2>
+        <div class="relative max-w-3xl mx-auto mb-8 fade-in">
+          <div
+            class="aspect-video bg-gray-100 rounded-lg flex items-center justify-center cursor-pointer hover:bg-gray-200 transition-colors duration-200"
+          >
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-20 h-20 bg-black/80 rounded-full flex items-center justify-center text-white text-2xl"
+              >
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <div class="absolute bottom-6 left-6 text-white">
+              <h3 class="text-2xl font-semibold text-lowercase">energise</h3>
+            </div>
+          </div>
+        </div>
+        <button
+          class="text-zobo-green-600 hover:text-zobo-green-700 font-medium text-lg transition-colors duration-200"
+        >
+          watch it here
+        </button>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Our Little Bottles -->
+          <div class="bg-white rounded-lg p-8 card-hover fade-in">
+            <div class="text-center">
+              <div
+                class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-zobo-green-600 text-2xl"
+              >
+                <i class="fas fa-recycle"></i>
+              </div>
+              <h3
+                class="text-xl font-semibold text-gray-900 text-lowercase mb-4"
+              >
+                our little bottles
+              </h3>
+              <p class="text-gray-600 mb-6">
+                All our bottles are recyclable, and we work hard to make sure
+                they're easy to recycle too. We'll raise a smoothie to that.
+              </p>
+              <a
+                href="pages/planet.html#recycling"
+                class="text-zobo-green-600 hover:text-zobo-green-700 font-medium"
+              >
+                read more
+              </a>
+            </div>
+          </div>
+
+          <!-- Sustainable Factory -->
+          <div class="bg-white rounded-lg p-8 card-hover fade-in">
+            <div class="text-center">
+              <div
+                class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-zobo-green-600 text-2xl"
+              >
+                <i class="fas fa-industry"></i>
+              </div>
+              <h3
+                class="text-xl font-semibold text-gray-900 text-lowercase mb-4"
+              >
+                say hello to our sustainable factory
+              </h3>
+              <p class="text-gray-600 mb-6">
+                We're building one of the world's most sustainable healthy
+                drinks factories over in Amsterdam. It's got solar panels and
+                everything.
+              </p>
+              <a
+                href="pages/about.html#factory"
+                class="text-zobo-green-600 hover:text-zobo-green-700 font-medium"
+              >
+                read more
+              </a>
+            </div>
+          </div>
+
+          <!-- B Corp -->
+          <div class="bg-white rounded-lg p-8 card-hover fade-in">
+            <div class="text-center">
+              <div
+                class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-zobo-green-600 text-2xl"
+              >
+                <i class="fas fa-certificate"></i>
+              </div>
+              <h3
+                class="text-xl font-semibold text-gray-900 text-lowercase mb-4"
+              >
+                we're a proud B Corp
+              </h3>
+              <p class="text-gray-600 mb-6">
+                Being a B Corp means we're part of a growing group of companies
+                who believe in doing business the right way.
+              </p>
+              <a
+                href="pages/b-corp.html"
+                class="text-zobo-green-600 hover:text-zobo-green-700 font-medium"
+              >
+                read more
+              </a>
+            </div>
+          </div>
+
+          <!-- Big Knit -->
+          <div class="bg-white rounded-lg p-8 card-hover fade-in">
+            <div class="text-center">
+              <div
+                class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 text-zobo-green-600 text-2xl"
+              >
+                <i class="fas fa-mitten"></i>
+              </div>
+              <h3
+                class="text-xl font-semibold text-gray-900 text-lowercase mb-4"
+              >
+                any good at knitting?
+              </h3>
+              <p class="text-gray-600 mb-6">
+                You knit a little hat, we'll pop it on a bottle and together, we
+                can help out a lonely older person. Win-win-win.
+              </p>
+              <a
+                href="pages/big-knit.html"
+                class="text-zobo-green-600 hover:text-zobo-green-700 font-medium"
+              >
+                read more
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portion-ometer Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-gray-900 text-lowercase mb-12 fade-in"
+        >
+          the portion-ometer
+        </h2>
+        <div class="flex justify-center mb-8 fade-in">
+          <div class="relative">
+            <div
+              class="w-48 h-48 portion-wheel rounded-full rotate-animation"
+            ></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="w-20 h-20 bg-white rounded-full flex flex-col items-center justify-center shadow-lg"
+              >
+                <span class="text-2xl font-bold text-zobo-green-600">3</span>
+                <span class="text-xs text-gray-500">portions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Our portion-ometer helps you understand how many portions of fruit and
+          veg are in each of our drinks.
+        </p>
+      </div>
+    </section>
+
+    <!-- Helping Humans Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-gray-900 text-lowercase mb-8"
+            >
+              helping our fellow humans
+            </h2>
+            <p class="text-xl text-gray-600 mb-8">
+              Some things we're doing to give back and help make our society
+              more equal.
+            </p>
+            <a
+              href="pages/people.html"
+              class="text-zobo-green-600 hover:text-zobo-green-700 font-medium text-lg"
+            >
+              read more
+            </a>
+          </div>
+          <div class="text-center fade-in">
+            <div
+              class="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mx-auto text-gray-400 text-6xl"
+            >
+              <i class="fas fa-users"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-gray-900 text-lowercase mb-8 fade-in"
+        >
+          give us a follow
+        </h2>
+        <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto fade-in">
+          We write a lot of nonsense on social media. Some of it's even about
+          our drinks. Give us a follow and there's a 32% chance you won't regret
+          it.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in">
+          <a
+            href="#"
+            class="inline-flex items-center px-6 py-3 border-2 border-zobo-green-600 text-zobo-green-600 hover:bg-zobo-green-600 hover:text-white font-medium transition-colors duration-200"
+          >
+            <i class="fab fa-facebook mr-2"></i>Facebook
+          </a>
+          <a
+            href="#"
+            class="inline-flex items-center px-6 py-3 border-2 border-zobo-green-600 text-zobo-green-600 hover:bg-zobo-green-600 hover:text-white font-medium transition-colors duration-200"
+          >
+            <i class="fab fa-instagram mr-2"></i>Instagram
+          </a>
+          <a
+            href="#"
+            class="inline-flex items-center px-6 py-3 border-2 border-zobo-green-600 text-zobo-green-600 hover:bg-zobo-green-600 hover:text-white font-medium transition-colors duration-200"
+          >
+            <i class="fab fa-tiktok mr-2"></i>TikTok
+          </a>
+        </div>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 fade-in"
+        >
+          <div class="bg-gray-50 rounded-lg p-4 text-center">
+            <i class="fas fa-utensils text-2xl text-zobo-green-600 mb-2"></i>
+            <p class="text-sm text-gray-600">breakfast</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 text-center">
+            <i class="fas fa-tint text-2xl text-zobo-green-600 mb-2"></i>
+            <p class="text-sm text-gray-600">thirst trap</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 text-center">
+            <i class="fas fa-certificate text-2xl text-zobo-green-600 mb-2"></i>
+            <p class="text-sm text-gray-600">b corp certified</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 text-center">
+            <i class="fas fa-mitten text-2xl text-zobo-green-600 mb-2"></i>
+            <p class="text-sm text-gray-600">bottle hats</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 text-center">
+            <i class="fas fa-dog text-2xl text-zobo-green-600 mb-2"></i>
+            <p class="text-sm text-gray-600">dog translator chart</p>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-4 text-center">
+            <i class="fas fa-coffee text-2xl text-zobo-green-600 mb-2"></i>
+            <p class="text-sm text-gray-600">
+              what your breakfast says about you
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbulb Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <h2
+              class="text-4xl md:text-5xl font-bold text-gray-900 text-lowercase mb-8"
+            >
+              lightbulb moment?
+            </h2>
+            <p class="text-xl text-gray-600 mb-8">
+              A good idea can come from anywhere. If you have a suggestion that
+              you reckon we'd be interested in, send it our way and we'll start
+              mulling it over. No need for blue drink ideas though – we've
+              already nailed that one.
+            </p>
+            <a
+              href="pages/contact.html"
+              class="inline-block bg-zobo-green-600 hover:bg-zobo-green-700 text-white font-medium py-4 px-8 rounded-none transition-colors duration-200 text-lg"
+            >
+              get in touch
+            </a>
+          </div>
+          <div class="text-center fade-in">
+            <div
+              class="w-32 h-32 bg-gray-100 rounded-full flex items-center justify-center mx-auto text-gray-400 text-6xl"
+            >
+              <i class="fas fa-lightbulb"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h5 class="text-lg font-semibold mb-6 text-lowercase">
+              A Bit About Us
+            </h5>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="pages/about.html"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >The Story</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/b-corp.html"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >B-Corp</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/about.html#blender"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >The Zobolender</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/nutrition.html"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Nutrition</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="text-lg font-semibold mb-6 text-lowercase">
+              Things We Make
+            </h5>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="pages/products.html#smoothies"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Smoothies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/products.html#super-smoothies"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Super Smoothies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/products.html#juices"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Juices</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/products.html#plus"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Zobolicious Plus</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/products.html#bubbles"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Bubbles</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/products.html#kids"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Kids</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/products.html#coconut"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Coconut Water</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="text-lg font-semibold mb-6 text-lowercase">
+              Things We Do For The Planet
+            </h5>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="pages/planet.html#recycling"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Recycling Activists</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/planet.html#farming"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Farming Champions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/planet.html#climate"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Climate Changers</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="text-lg font-semibold mb-6 text-lowercase">
+              Things We Do For People
+            </h5>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="pages/people.html#inclusion"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Inclusion & Diversity</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/people.html#human-rights"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Human Rights</a
+                >
+              </li>
+              <li>
+                <a
+                  href="pages/people.html#gender-pay"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Gender Pay Gap</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="border-gray-700 mb-8" />
+
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center"
+        >
+          <div class="flex flex-wrap gap-6 mb-4 md:mb-0">
+            <a
+              href="pages/careers.html"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Fancy a job?</a
+            >
+            <a
+              href="pages/contact.html"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Get in touch</a
+            >
+            <a
+              href="pages/faqs.html"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >FAQs</a
+            >
+            <a
+              href="pages/legal.html#modern-slavery"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Modern Slavery</a
+            >
+            <a
+              href="pages/legal.html#privacy"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Privacy Policy</a
+            >
+            <a
+              href="pages/legal.html#terms"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Terms of Use</a
+            >
+            <a
+              href="pages/legal.html#cookies"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Cookie Policy</a
+            >
+            <a
+              href="pages/legal.html#owner"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Our Owner</a
+            >
+            <a
+              href="pages/legal.html#tax"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Tax Policy</a
+            >
+          </div>
+          <div class="text-gray-400 text-sm">
+            © 2025 Zobolicious Limited. All rights reserved. Zobolicious and the
+            Zobo logo are registered trademarks of Zobolicious Limited.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-zobo-green-600 hover:bg-zobo-green-700 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Back to top button
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.add("opacity-0", "invisible");
+          backToTopButton.classList.remove("opacity-100", "visible");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Video placeholder click
+      const videoPlaceholder = document.querySelector(".aspect-video");
+      if (videoPlaceholder) {
+        videoPlaceholder.addEventListener("click", () => {
+          alert("Video player would open here!");
+        });
+      }
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

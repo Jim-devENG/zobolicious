@@ -1,0 +1,633 @@
+/* Custom Bootstrap Styles for Zobolicious - Matching Innocent Drinks */
+
+/* CSS Variables for consistent colors */
+:root {
+    --primary-green: #4CAF50;
+    --dark-green: #388E3C;
+    --light-green: #81C784;
+    --accent-green: #66BB6A;
+    --text-dark: #000;
+    --text-muted: #666;
+    --bg-light: #f8f8f8;
+    --white: #fff;
+}
+
+/* Typography */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    font-size: 16px;
+}
+
+/* Text transforms to match Innocent Drinks */
+.display-3, .display-6, h1, h2, h3, h4, h5, h6 {
+    text-transform: lowercase;
+    font-weight: 600;
+}
+
+/* Hero Section - Perfect alignment like Innocent */
+.hero-section {
+    background: var(--white);
+    padding-top: 120px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section .container {
+    max-width: 800px;
+}
+
+.hero-section .display-3 {
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Navigation - Clean and minimal */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(10px);
+}
+
+.navbar-nav .nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: lowercase;
+    color: var(--text-dark) !important;
+    transition: color 0.2s ease;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--primary-green) !important;
+}
+
+.dropdown-menu {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+}
+
+.dropdown-item {
+    font-size: 14px;
+    text-transform: lowercase;
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s ease;
+    color: var(--text-dark);
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-green);
+}
+
+/* Buttons - Green primary color */
+.btn {
+    font-weight: 500;
+    text-transform: lowercase;
+    border-radius: 0;
+    transition: all 0.2s ease;
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: var(--primary-green);
+    border: 2px solid var(--primary-green);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--dark-green);
+    border-color: var(--dark-green);
+    color: var(--white);
+}
+
+.btn-dark {
+    background: var(--text-dark);
+    border: 2px solid var(--text-dark);
+    color: var(--white);
+}
+
+.btn-dark:hover {
+    background: var(--white);
+    color: var(--text-dark);
+    border-color: var(--text-dark);
+}
+
+.btn-outline-dark {
+    border: 2px solid var(--text-dark);
+    color: var(--text-dark);
+    background: transparent;
+}
+
+.btn-outline-dark:hover {
+    background: var(--text-dark);
+    color: var(--white);
+    border-color: var(--text-dark);
+}
+
+.btn-lg {
+    padding: 16px 32px;
+    font-size: 18px;
+}
+
+/* Cards - Perfect alignment and spacing */
+.card {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    background: var(--white);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body h3 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-body p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-body a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.card-body a:hover {
+    text-decoration: underline;
+}
+
+/* Feature Icons - Green theme */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2rem;
+    color: var(--primary-green);
+    transition: all 0.2s ease;
+}
+
+.card:hover .feature-icon {
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+/* Video Container - Perfect alignment */
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 450px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.video-placeholder:hover {
+    transform: scale(1.02);
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    transition: background 0.2s ease;
+}
+
+.play-button:hover {
+    background: rgba(0, 0, 0, 1);
+}
+
+.video-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.video-overlay h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: lowercase;
+}
+
+/* Portion Wheel - Green theme */
+.portion-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.portion-wheel {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--primary-green) 0deg 72deg,
+        var(--dark-green) 72deg 144deg,
+        var(--accent-green) 144deg 216deg,
+        var(--light-green) 216deg 288deg,
+        #2E7D32 288deg 360deg
+    );
+    position: relative;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.portion-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.portion-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    line-height: 1;
+}
+
+.portion-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Social Links - Green theme */
+.social-links .btn {
+    margin-bottom: 0.5rem;
+    border-color: var(--primary-green);
+    color: var(--primary-green);
+}
+
+.social-links .btn:hover {
+    background: var(--primary-green);
+    color: var(--white);
+}
+
+/* Background Colors */
+.bg-light {
+    background-color: var(--bg-light) !important;
+}
+
+/* Section spacing - Perfect alignment */
+section {
+    padding: 5rem 0;
+}
+
+section .container {
+    max-width: 1200px;
+}
+
+/* Section titles - Perfect alignment */
+section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+section .lead {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: var(--text-muted);
+}
+
+/* Grid alignment - Perfect spacing */
+.row {
+    margin: 0;
+}
+
+.col-md-6, .col-lg-3, .col-lg-6, .col-lg-8 {
+    padding: 0 1rem;
+}
+
+/* Social feed cards - Perfect alignment */
+.social-feed .card {
+    text-align: center;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-feed .card-body {
+    padding: 1.5rem;
+}
+
+.social-feed i {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+/* Footer - Green accents */
+footer {
+    background: var(--text-dark) !important;
+}
+
+footer h5 {
+    font-weight: 600;
+    text-transform: lowercase;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+footer a {
+    transition: color 0.2s ease;
+    color: #ccc !important;
+}
+
+footer a:hover {
+    color: var(--primary-green) !important;
+}
+
+footer hr {
+    border-color: #333;
+    margin: 2rem 0;
+}
+
+/* Responsive adjustments - Perfect mobile alignment */
+@media (max-width: 768px) {
+    .hero-section .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .portion-wheel {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .portion-indicator {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .portion-number {
+        font-size: 1.2rem;
+    }
+    
+    .portion-text {
+        font-size: 0.7rem;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .social-links .btn {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Perfect spacing utilities */
+.py-5 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Text colors */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Shadow utilities */
+.shadow-sm {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Border utilities */
+.border-0 {
+    border: none !important;
+}
+
+/* Grid utilities */
+.g-4 {
+    gap: 1.5rem !important;
+}
+
+.g-3 {
+    gap: 1rem !important;
+}
+
+/* Flex utilities */
+.d-flex {
+    display: flex !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+/* Gap utilities */
+.gap-3 {
+    gap: 1rem !important;
+}
+
+/* Text alignment */
+.text-center {
+    text-align: center !important;
+}
+
+.text-md-end {
+    text-align: right !important;
+}
+
+/* Small text */
+.small {
+    font-size: 0.875rem !important;
+}
+
+/* Margin bottom 0 */
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+/* Padding utilities */
+.p-3 {
+    padding: 1rem !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+/* Font Awesome sizing */
+.fa-2x {
+    font-size: 2em !important;
+}
+
+.fa-6x {
+    font-size: 6em !important;
+}
+
+/* Button margin */
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+.me-3 {
+    margin-right: 1rem !important;
+}
+
+/* Perfect container alignment */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Row perfect alignment */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+}
+
+/* Column perfect alignment */
+[class*="col-"] {
+    padding: 0 1rem;
+}
+
+/* Card perfect alignment */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body a {
+    margin-top: auto;
+} 
