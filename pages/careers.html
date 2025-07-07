@@ -1,56 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Careers - Zobolicious</title>
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'zobo-green': {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                        }
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "zobo-green": {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                200: "#bbf7d0",
+                300: "#86efac",
+                400: "#4ade80",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
-    
+
     <style>
-        .text-lowercase { text-transform: lowercase; }
-        .hero-gradient { background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        .fade-in { animation: fadeIn 0.6s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      .text-lowercase {
+        text-transform: lowercase;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
-</head>
-<body class="font-sans text-gray-900 bg-white">
-        <!-- Navigation -->
+  </head>
+  <body class="font-sans text-gray-900 bg-white">
+    <!-- Navigation -->
     <nav
       class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50"
     >
@@ -58,7 +85,9 @@
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <div class="flex-shrink-0">
-            <a href="../index.html" class="text-2xl font-bold text-zobo-green-600"
+            <a
+              href="../index.html"
+              class="text-2xl font-bold text-zobo-green-600"
               >zobolicious</a
             >
           </div>
@@ -242,171 +271,363 @@
 
     <!-- Hero Section -->
     <section class="hero-gradient pt-32 pb-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 text-lowercase mb-8 fade-in">
-                fancy a job?
-            </h1>
-            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto fade-in">
-                Join our team and help us make the world a bit better, one drink at a time.
-            </p>
-        </div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1
+          class="text-5xl md:text-6xl font-bold text-gray-900 text-lowercase mb-8 fade-in"
+        >
+          fancy a job?
+        </h1>
+        <p
+          class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto fade-in"
+        >
+          Join our team and help us make the world a bit better, one drink at a
+          time.
+        </p>
+      </div>
     </section>
 
     <!-- Main Content -->
     <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="prose prose-lg max-w-none">
-                <div class="text-center mb-12 fade-in">
-                    <h2 class="text-3xl font-bold text-gray-900 text-lowercase mb-6">join our team</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">We're looking for passionate people who believe that business can be a force for good.</p>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div class="bg-gray-50 rounded-lg p-8 fade-in">
-                        <h3 class="text-2xl font-semibold text-gray-900 text-lowercase mb-4">what we're looking for</h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-center"><i class="fas fa-check text-zobo-green-600 mr-3"></i>Passion for making a difference</li>
-                            <li class="flex items-center"><i class="fas fa-check text-zobo-green-600 mr-3"></i>Commitment to our values</li>
-                            <li class="flex items-center"><i class="fas fa-check text-zobo-green-600 mr-3"></i>Team players</li>
-                            <li class="flex items-center"><i class="fas fa-check text-zobo-green-600 mr-3"></i>Creative thinkers</li>
-                        </ul>
-                    </div>
-                    <div class="bg-gray-50 rounded-lg p-8 fade-in">
-                        <h3 class="text-2xl font-semibold text-gray-900 text-lowercase mb-4">what you'll get</h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-center"><i class="fas fa-gift text-zobo-green-600 mr-3"></i>Competitive salary</li>
-                            <li class="flex items-center"><i class="fas fa-gift text-zobo-green-600 mr-3"></i>Flexible working</li>
-                            <li class="flex items-center"><i class="fas fa-gift text-zobo-green-600 mr-3"></i>Health insurance</li>
-                            <li class="flex items-center"><i class="fas fa-gift text-zobo-green-600 mr-3"></i>Learning and development</li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="prose prose-lg max-w-none">
+          <div class="text-center mb-12 fade-in">
+            <h2 class="text-3xl font-bold text-gray-900 text-lowercase mb-6">
+              join our team
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              We're looking for passionate people who believe that business can
+              be a force for good.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-gray-50 rounded-lg p-8 fade-in">
+              <h3
+                class="text-2xl font-semibold text-gray-900 text-lowercase mb-4"
+              >
+                what we're looking for
+              </h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-center">
+                  <i class="fas fa-check text-zobo-green-600 mr-3"></i>Passion
+                  for making a difference
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-zobo-green-600 mr-3"></i
+                  >Commitment to our values
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-zobo-green-600 mr-3"></i>Team
+                  players
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-check text-zobo-green-600 mr-3"></i>Creative
+                  thinkers
+                </li>
+              </ul>
             </div>
-        
+            <div class="bg-gray-50 rounded-lg p-8 fade-in">
+              <h3
+                class="text-2xl font-semibold text-gray-900 text-lowercase mb-4"
+              >
+                what you'll get
+              </h3>
+              <ul class="space-y-3 text-gray-600">
+                <li class="flex items-center">
+                  <i class="fas fa-gift text-zobo-green-600 mr-3"></i
+                  >Competitive salary
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-gift text-zobo-green-600 mr-3"></i>Flexible
+                  working
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-gift text-zobo-green-600 mr-3"></i>Health
+                  insurance
+                </li>
+                <li class="flex items-center">
+                  <i class="fas fa-gift text-zobo-green-600 mr-3"></i>Learning
+                  and development
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <h5 class="text-lg font-semibold mb-6 text-lowercase">A Bit About Us</h5>
-                    <ul class="space-y-3">
-                        <li><a href="about.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">The Story</a></li>
-                        <li><a href="b-corp.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">B-Corp</a></li>
-                        <li><a href="about.html#blender" class="text-gray-300 hover:text-zobo-green-400 transition-colors">The Zobolender</a></li>
-                        <li><a href="nutrition.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Nutrition</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-6 text-lowercase">Things We Make</h5>
-                    <ul class="space-y-3">
-                        <li><a href="products.html#smoothies" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Smoothies</a></li>
-                        <li><a href="products.html#super-smoothies" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Super Smoothies</a></li>
-                        <li><a href="products.html#juices" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Juices</a></li>
-                        <li><a href="products.html#plus" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Zobolicious Plus</a></li>
-                        <li><a href="products.html#bubbles" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Bubbles</a></li>
-                        <li><a href="products.html#kids" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Kids</a></li>
-                        <li><a href="products.html#coconut" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Coconut Water</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-6 text-lowercase">Things We Do For The Planet</h5>
-                    <ul class="space-y-3">
-                        <li><a href="planet.html#recycling" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Recycling Activists</a></li>
-                        <li><a href="planet.html#farming" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Farming Champions</a></li>
-                        <li><a href="planet.html#climate" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Climate Changers</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-6 text-lowercase">Things We Do For People</h5>
-                    <ul class="space-y-3">
-                        <li><a href="people.html#inclusion" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Inclusion & Diversity</a></li>
-                        <li><a href="people.html#human-rights" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Human Rights</a></li>
-                        <li><a href="people.html#gender-pay" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Gender Pay Gap</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <hr class="border-gray-700 mb-8">
-            
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                <div class="flex flex-wrap gap-6 mb-4 md:mb-0">
-                    <a href="careers.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Fancy a job?</a>
-                    <a href="contact.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Get in touch</a>
-                    <a href="faqs.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">FAQs</a>
-                    <a href="legal.html#modern-slavery" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Modern Slavery</a>
-                    <a href="legal.html#privacy" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Privacy Policy</a>
-                    <a href="legal.html#terms" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Terms of Use</a>
-                    <a href="legal.html#cookies" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Cookie Policy</a>
-                    <a href="legal.html#owner" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Our Owner</a>
-                    <a href="legal.html#tax" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Tax Policy</a>
-                </div>
-                <div class="text-gray-400 text-sm">
-                    © 2025 Zobolicious Limited. All rights reserved. Zobolicious and the Zobo logo are registered trademarks of Zobolicious Limited.
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h5 class="text-lg font-semibold mb-6 text-lowercase">
+              A Bit About Us
+            </h5>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="about.html"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >The Story</a
+                >
+              </li>
+              <li>
+                <a
+                  href="b-corp.html"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >B-Corp</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html#blender"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >The Zobolender</a
+                >
+              </li>
+              <li>
+                <a
+                  href="nutrition.html"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Nutrition</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="text-lg font-semibold mb-6 text-lowercase">
+              Things We Make
+            </h5>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="products.html#smoothies"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Smoothies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#super-smoothies"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Super Smoothies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#juices"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Juices</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#plus"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Zobolicious Plus</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#bubbles"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Bubbles</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#kids"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Kids</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#coconut"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Coconut Water</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="text-lg font-semibold mb-6 text-lowercase">
+              Things We Do For The Planet
+            </h5>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="planet.html#recycling"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Recycling Activists</a
+                >
+              </li>
+              <li>
+                <a
+                  href="planet.html#farming"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Farming Champions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="planet.html#climate"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Climate Changers</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="text-lg font-semibold mb-6 text-lowercase">
+              Things We Do For People
+            </h5>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="people.html#inclusion"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Inclusion & Diversity</a
+                >
+              </li>
+              <li>
+                <a
+                  href="people.html#human-rights"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Human Rights</a
+                >
+              </li>
+              <li>
+                <a
+                  href="people.html#gender-pay"
+                  class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+                  >Gender Pay Gap</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <hr class="border-gray-700 mb-8" />
+
+        <div
+          class="flex flex-col md:flex-row justify-between items-start md:items-center"
+        >
+          <div class="flex flex-wrap gap-6 mb-4 md:mb-0">
+            <a
+              href="careers.html"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Fancy a job?</a
+            >
+            <a
+              href="contact.html"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Get in touch</a
+            >
+            <a
+              href="faqs.html"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >FAQs</a
+            >
+            <a
+              href="legal.html#modern-slavery"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Modern Slavery</a
+            >
+            <a
+              href="legal.html#privacy"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Privacy Policy</a
+            >
+            <a
+              href="legal.html#terms"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Terms of Use</a
+            >
+            <a
+              href="legal.html#cookies"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Cookie Policy</a
+            >
+            <a
+              href="legal.html#owner"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Our Owner</a
+            >
+            <a
+              href="legal.html#tax"
+              class="text-gray-300 hover:text-zobo-green-400 transition-colors"
+              >Tax Policy</a
+            >
+          </div>
+          <div class="text-gray-400 text-sm">
+            © 2025 Zobolicious Limited. All rights reserved. Zobolicious and the
+            Zobo logo are registered trademarks of Zobolicious Limited.
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-zobo-green-600 hover:bg-zobo-green-700 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
-        <i class="fas fa-arrow-up"></i>
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 w-12 h-12 bg-zobo-green-600 hover:bg-zobo-green-700 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50"
+    >
+      <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- JavaScript -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Back to top button
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.add("opacity-0", "invisible");
+          backToTopButton.classList.remove("opacity-100", "visible");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
         });
-        
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.add('opacity-0', 'invisible');
-                backToTopButton.classList.remove('opacity-100', 'visible');
-            }
+      });
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+          }
         });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
     </script>
-</body>
+  </body>
 </html>
