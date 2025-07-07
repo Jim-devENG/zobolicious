@@ -1,17 +1,17 @@
-# Zobolicious Website
+Zobolicious Website
 
 A modern, interactive website for Zobolicious - a fictional healthy drinks company inspired by Innocent Drinks. This project showcases a complete e-commerce and corporate website with multiple pages, interactive features, and responsive design.
 
-## 🌟 Features
+**Features**
 
-### Design & User Experience
+**Design & User Experience**
 
 - **Modern, Clean Design**: Inspired by Innocent Drinks with a fresh, approachable aesthetic
 - **Fully Responsive**: Works perfectly on desktop, tablet, and mobile devices
 - **Interactive Elements**: Hover effects, animations, and smooth transitions
 - **Accessibility**: Built with accessibility best practices in mind
 
-### Pages & Content
+ Pages & Content
 
 - **Homepage**: Hero section, product features, social media integration
 - **About Us**: Company story, values, team, and timeline
@@ -36,7 +36,7 @@ A modern, interactive website for Zobolicious - a fictional healthy drinks compa
 - **Responsive Grid**: CSS Grid and Flexbox for layout
 - **Modern CSS**: CSS custom properties, gradients, and modern features
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 zobolicious/
@@ -61,7 +61,7 @@ zobolicious/
 └── components/             # Reusable components (future use)
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -93,7 +93,7 @@ php -S localhost:8000
 
 Then visit `http://localhost:8000` in your browser.
 
-## 🎨 Customization
+## Customization
 
 ### Colors
 
@@ -116,7 +116,7 @@ The main color scheme can be modified in the CSS files:
 - Page-specific styles in `page-styles.css`
 - Additional components in `additional-styles.css`
 
-## 📱 Responsive Design
+## Responsive Design
 
 The website is fully responsive and includes:
 
@@ -124,7 +124,7 @@ The website is fully responsive and includes:
 - **Tablet**: Optimized layout for medium screens
 - **Mobile**: Mobile-first design with hamburger menu
 
-## 🔧 JavaScript Features
+## JavaScript Features
 
 ### Navigation
 
@@ -147,7 +147,7 @@ The website is fully responsive and includes:
 - Video player placeholder
 - Social media links
 
-## 🌍 Browser Support
+## Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
@@ -155,11 +155,11 @@ The website is fully responsive and includes:
 - Edge (latest)
 - Internet Explorer 11+ (with some limitations)
 
-## 📄 License
+## License
 
 This project is created for educational and demonstration purposes. Feel free to use and modify as needed.
 
-## 🤝 Contributing
+## Contributing
 
 While this is a demonstration project, suggestions and improvements are welcome:
 
@@ -169,11 +169,11 @@ While this is a demonstration project, suggestions and improvements are welcome:
 4. Test thoroughly
 5. Submit a pull request
 
-## 📞 Support
+## Support
 
 For questions or support regarding this project, please refer to the contact information in the website or create an issue in the repository.
 
-## 🎯 Future Enhancements
+## Future Enhancements
 
 Potential improvements for the website:
 
