@@ -1,86 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>People - Zobolicious</title>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zobolicious - Things We Do For People</title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'zobo-green': {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            300: '#86efac',
-                            400: '#4ade80',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                        }
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "zobo-green": {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                200: "#bbf7d0",
+                300: "#86efac",
+                400: "#4ade80",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
-    
+
     <style>
-        .text-lowercase { text-transform: lowercase; }
-        .hero-gradient { background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); }
-        .card-hover { transition: all 0.3s ease; }
-        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        .fade-in { animation: fadeIn 0.6s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+      body {
+        background: #0f172a;
+        color: #f8fafc;
+      }
+
+      .text-lowercase {
+        text-transform: lowercase;
+      }
+
+      .nav-dramatic {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        backdrop-filter: blur(20px);
+        border: 1px solid #475569;
+      }
+
+      .nav-link-dramatic {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link-dramatic::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link-dramatic:hover::after {
+        width: 100%;
+      }
+
+      .btn-dramatic {
+        background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .btn-dramatic:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px rgba(34, 197, 94, 0.4);
+      }
+
+      .card-hover {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.6, 1);
+        position: relative;
+        overflow: hidden;
+        background: #1e293b;
+        border: 1px solid #334155;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+          0 0 0 1px rgba(34, 197, 94, 0.1);
+        background: #334155;
+      }
+
+      .pattern-bg {
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(34, 197, 94, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(22, 163, 74, 0.1) 0%,
+            transparent 50%
+          );
+      }
+
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
-</head>
-<body class="font-sans text-gray-900 bg-white">
-        <!-- Navigation -->
+  </head>
+  <body class="font-sans text-white bg-[#c8102e] pattern-bg">
+    <!-- Navigation -->
     <nav
-      class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50"
+      class="nav-dramatic fixed top-0 w-full z-50 rounded-b-3xl shadow-2xl border-b-4 border-zobo-green-600"
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <div class="flex-shrink-0">
-            <a href="../index.html" class="text-2xl font-bold text-zobo-green-600"
+            <a
+              href="../index.html"
+              class="text-2xl font-black text-zobo-green-600 hover:text-zobo-green-700 transition-colors duration-300 lowercase tracking-tight"
+              style="letter-spacing: -0.04em"
               >zobolicious</a
             >
           </div>
-
           <!-- Desktop Navigation -->
           <div class="hidden lg:block">
-            <div class="flex items-center space-x-8">
-              <!-- Simple dropdown for About -->
+            <div class="flex items-center space-x-6">
+              <!-- About Us Dropdown -->
               <div class="relative group">
                 <button
-                  class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                  class="nav-link-dramatic text-xs font-medium text-slate-300 hover:text-zobo-green-600 lowercase transition-colors"
                 >
-                  about us
+                  about
                 </button>
                 <div
-                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
+                  class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
                 >
                   <div class="py-1">
                     <a
                       href="about.html"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
                       >our story</a
+                    >
+                    <a
+                      href="founder.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >founder</a
                     >
                     <a
                       href="b-corp.html"
@@ -92,66 +196,6 @@
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
                       >our promise</a
                     >
-                  </div>
-                </div>
-              </div>
-
-              <!-- Simple dropdown for Products -->
-              <div class="relative group">
-                <button
-                  class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  products
-                </button>
-                <div
-                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
-                >
-                  <div class="py-1">
-                    <a
-                      href="products.html#smoothies"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
-                      >smoothies</a
-                    >
-                    <a
-                      href="products.html#juices"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
-                      >juices</a
-                    >
-                    <a
-                      href="products.html#kids"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
-                      >kids</a
-                    >
-                    <a
-                      href="products.html#shots"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
-                      >shots</a
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <!-- Simple dropdown for Impact -->
-              <div class="relative group">
-                <button
-                  class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  our impact
-                </button>
-                <div
-                  class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
-                >
-                  <div class="py-1">
-                    <a
-                      href="people.html"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
-                      >people</a
-                    >
-                    <a
-                      href="planet.html"
-                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
-                      >planet</a
-                    >
                     <a
                       href="nutrition.html"
                       class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
@@ -161,274 +205,701 @@
                 </div>
               </div>
 
-              <!-- Direct links -->
+              <!-- Things We Make Dropdown -->
+              <div class="relative group">
+                <button
+                  class="nav-link-dramatic text-xs font-medium text-slate-300 hover:text-zobo-green-600 lowercase transition-colors"
+                >
+                  products
+                </button>
+                <div
+                  class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
+                >
+                  <div class="py-1">
+                    <a
+                      href="products.html#kids"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >kids</a
+                    >
+                    <a
+                      href="products.html#smoothies"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >smoothies</a
+                    >
+                    <a
+                      href="products.html#super-smoothies"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >super smoothies</a
+                    >
+                    <a
+                      href="products.html#shots"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >shots</a
+                    >
+                    <a
+                      href="products.html#juicy-water"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >juicy water</a
+                    >
+                    <a
+                      href="products.html#juicy-water-bubbles"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >juicy water with bubbles</a
+                    >
+                    <a
+                      href="products.html#juices"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >juices</a
+                    >
+                    <a
+                      href="products.html#zobo-plus"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >zobo plus</a
+                    >
+                    <a
+                      href="products.html#coconut-water"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >coconut water</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Things We Do For People Dropdown -->
+              <div class="relative group">
+                <button
+                  class="nav-link-dramatic text-xs font-medium text-slate-300 hover:text-zobo-green-600 lowercase transition-colors"
+                >
+                  people
+                </button>
+                <div
+                  class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
+                >
+                  <div class="py-1">
+                    <a
+                      href="people.html#human-rights"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >human rights</a
+                    >
+                    <a
+                      href="people.html#inclusion-diversity"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >inclusion & diversity</a
+                    >
+                    <a
+                      href="people.html#gender-pay-gap"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >gender pay gap</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Things We Do For Planet Dropdown -->
+              <div class="relative group">
+                <button
+                  class="nav-link-dramatic text-xs font-medium text-slate-300 hover:text-zobo-green-600 lowercase transition-colors"
+                >
+                  planet
+                </button>
+                <div
+                  class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-gray-200"
+                >
+                  <div class="py-1">
+                    <a
+                      href="planet.html#recycling-activists"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >recycling activists</a
+                    >
+                    <a
+                      href="planet.html#sourcing-stories"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >sourcing stories</a
+                    >
+                    <a
+                      href="planet.html#farming-champions"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >farming champions</a
+                    >
+                    <a
+                      href="planet.html#climate-changers"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-zobo-green-600"
+                      >climate changers</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Things We Do For Kids -->
+              <a
+                href="kids.html"
+                class="nav-link-dramatic text-xs font-medium text-slate-300 hover:text-zobo-green-600 lowercase transition-colors"
+                >kids</a
+              >
+
+              <!-- Fancy a Job -->
               <a
                 href="careers.html"
-                class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                class="nav-link-dramatic text-xs font-medium text-slate-300 hover:text-zobo-green-600 lowercase transition-colors"
+                >jobs</a
               >
-                careers
-              </a>
+
+              <!-- Get in Touch -->
               <a
                 href="contact.html"
-                class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                class="nav-link-dramatic text-xs font-medium text-slate-300 hover:text-zobo-green-600 lowercase transition-colors"
+                >contact</a
               >
-                contact
-              </a>
+
+              <!-- Become a Distributor -->
               <a
                 href="big-knit.html"
-                class="text-gray-700 hover:text-zobo-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                class="nav-link-dramatic text-xs font-medium text-zobo-green-600 hover:text-zobo-green-700 lowercase transition-colors"
+                >distribute</a
               >
-                big knit
-              </a>
             </div>
           </div>
-
           <!-- Mobile menu button -->
           <div class="lg:hidden">
             <button
               id="mobile-menu-button"
-              class="text-gray-700 hover:text-zobo-green-600 p-2"
+              class="text-slate-300 hover:text-zobo-green-600 p-2 transition-colors"
             >
               <i class="fas fa-bars text-xl"></i>
             </button>
           </div>
         </div>
       </div>
-
       <!-- Mobile Navigation -->
       <div
         id="mobile-menu"
-        class="lg:hidden hidden bg-white border-t border-gray-200"
+        class="lg:hidden hidden bg-slate-900/95 backdrop-blur-md border-t border-slate-700 rounded-b-3xl shadow-lg"
       >
-        <div class="px-2 pt-2 pb-3 space-y-1">
+        <div class="px-4 pt-4 pb-6 space-y-2">
           <a
             href="about.html"
-            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
-            >about us</a
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
+            >our story</a
+          >
+          <a
+            href="founder.html"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
+            >founder</a
+          >
+          <a
+            href="b-corp.html"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
+            >b-corp</a
+          >
+          <a
+            href="promise.html"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
+            >our promise</a
+          >
+          <a
+            href="nutrition.html"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
+            >nutrition</a
           >
           <a
             href="products.html"
-            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
             >products</a
           >
           <a
             href="people.html"
-            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
             >people</a
           >
           <a
             href="planet.html"
-            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
             >planet</a
           >
           <a
+            href="kids.html"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
+            >kids</a
+          >
+          <a
             href="careers.html"
-            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
-            >careers</a
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
+            >jobs</a
           >
           <a
             href="contact.html"
-            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
+            class="block px-4 py-3 text-base font-medium text-slate-300 hover:text-zobo-green-600 hover:bg-slate-800 rounded-lg transition-colors lowercase"
             >contact</a
           >
           <a
             href="big-knit.html"
-            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-zobo-green-600 hover:bg-gray-50"
-            >big knit</a
+            class="block px-4 py-3 text-base font-medium text-zobo-green-600 hover:text-zobo-green-700 hover:bg-slate-800 rounded-lg transition-colors lowercase"
+            >distribute</a
           >
         </div>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-gradient pt-32 pb-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 text-lowercase mb-8 fade-in">
-                things we do for people
-            </h1>
-            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto fade-in">
-                We believe that business should be about more than just making money. It should be about making a difference.
-            </p>
-        </div>
+    <!-- Hero Section with Bubbles -->
+    <section
+      class="hero-gradient min-h-[50vh] flex items-center justify-center pt-16 relative overflow-hidden"
+      style="
+        background: linear-gradient(
+          135deg,
+          #c8102e 0%,
+          #22c55e 50%,
+          #c8102e 100%
+        );
+      "
+    >
+      <span class="bubble bubble1"></span>
+      <span class="bubble bubble2"></span>
+      <span class="bubble bubble3"></span>
+      <span class="bubble bubble4"></span>
+      <span class="bubble bubble5"></span>
+      <span class="bubble bubble6"></span>
+      <div
+        class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+      >
+        <h1
+          class="text-6xl md:text-7xl font-black text-white text-lowercase mb-8 text-hero tracking-tight drop-shadow-2xl"
+          style="letter-spacing: -0.04em"
+        >
+          things we do for people
+        </h1>
+      </div>
     </section>
 
-    <!-- Main Content -->
-    <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="prose prose-lg max-w-none">
-                <div id="human-rights" class="mb-20 fade-in">
-                    <h2 class="text-3xl font-bold text-gray-900 text-lowercase mb-8">human rights</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <p class="text-gray-600 mb-6">We're committed to respecting and promoting human rights throughout our business. This means treating everyone we work with fairly and with dignity.</p>
-                            <p class="text-gray-600 mb-6">We conduct regular audits of our supply chain to ensure that no one is being exploited or mistreated. We also work with our suppliers to help them improve their own human rights practices.</p>
-                            <p class="text-gray-600">We believe that everyone has the right to work in safe conditions, to be paid a fair wage, and to be treated with respect. And we're working hard to make sure that's the case throughout our business.</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-64 h-64 bg-gray-100 rounded-full flex items-center justify-center mx-auto text-gray-400 text-6xl">
-                                <i class="fas fa-hands-helping"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="inclusion" class="mb-20 fade-in">
-                    <h2 class="text-3xl font-bold text-gray-900 text-lowercase mb-8">inclusion & diversity</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div class="text-center lg:order-2">
-                            <div class="w-64 h-64 bg-gray-100 rounded-full flex items-center justify-center mx-auto text-gray-400 text-6xl">
-                                <i class="fas fa-users"></i>
-                            </div>
-                        </div>
-                        <div class="lg:order-1">
-                            <p class="text-gray-600 mb-6">We believe that diversity makes us stronger. That's why we're committed to creating an inclusive workplace where everyone feels welcome and valued.</p>
-                            <p class="text-gray-600 mb-6">We're working to increase diversity at all levels of our business, from our board to our shop floor. We're also providing training and support to help everyone understand and celebrate our differences.</p>
-                            <p class="text-gray-600">We believe that everyone should have the opportunity to succeed, regardless of their background, and we're working hard to make that a reality.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="gender-pay" class="fade-in">
-                    <h2 class="text-3xl font-bold text-gray-900 text-lowercase mb-8">gender pay gap</h2>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <p class="text-gray-600 mb-6">We're committed to paying everyone fairly for the work they do, regardless of their gender. That's why we publish our gender pay gap data every year.</p>
-                            <p class="text-gray-600 mb-6">We're working to close the gender pay gap by ensuring that women and men are paid equally for equal work, and by supporting women to progress in their careers.</p>
-                            <p class="text-gray-600">We believe that transparency is key to making progress, which is why we're open about our data and our plans to improve.</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-64 h-64 bg-gray-100 rounded-full flex items-center justify-center mx-auto text-gray-400 text-6xl">
-                                <i class="fas fa-balance-scale"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
+    <!-- Main Content Section -->
+    <section class="py-20 bg-[#c8102e] pattern-bg">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-black text-white text-lowercase mb-8"
+            data-aos="fade-up"
+          >
+            treating everyone fairly
+          </h2>
+          <p
+            class="text-xl text-white max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            we believe in treating everyone fairly and with respect. from our
+            employees to our suppliers, we're committed to making the world a
+            better place for people.
+          </p>
         </div>
+
+        <!-- Human Rights Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <div data-aos="fade-right">
+            <h2
+              class="text-4xl md:text-5xl font-black text-white text-lowercase mb-8"
+            >
+              human rights
+            </h2>
+            <p class="text-xl text-white mb-6 leading-relaxed">
+              We're committed to respecting and promoting human rights
+              throughout our business operations and supply chain.
+            </p>
+            <p class="text-xl text-white mb-8 leading-relaxed">
+              This means ensuring fair working conditions, living wages, and
+              zero tolerance for discrimination or exploitation.
+            </p>
+          </div>
+          <div class="text-center" data-aos="fade-left">
+            <div
+              class="w-64 h-64 bg-white rounded-full flex items-center justify-center mx-auto shadow-2xl"
+            >
+              <i class="fas fa-hands-helping text-8xl text-[#c8102e]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Human Rights Initiatives -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+          <div
+            class="card-hover rounded-3xl p-8 text-center"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-users text-3xl text-[#c8102e]"></i>
+            </div>
+            <h3 class="text-2xl font-black text-white text-lowercase mb-4">
+              fair wages
+            </h3>
+            <p class="text-white leading-relaxed">
+              We ensure all workers in our supply chain receive fair, living
+              wages.
+            </p>
+          </div>
+
+          <div
+            class="card-hover rounded-3xl p-8 text-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-shield-alt text-3xl text-[#c8102e]"></i>
+            </div>
+            <h3 class="text-2xl font-black text-white text-lowercase mb-4">
+              safe conditions
+            </h3>
+            <p class="text-white leading-relaxed">
+              We maintain safe and healthy working environments for all
+              employees.
+            </p>
+          </div>
+
+          <div
+            class="card-hover rounded-3xl p-8 text-center"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-balance-scale text-3xl text-[#c8102e]"></i>
+            </div>
+            <h3 class="text-2xl font-black text-white text-lowercase mb-4">
+              no discrimination
+            </h3>
+            <p class="text-white leading-relaxed">
+              We have zero tolerance for discrimination based on any
+              characteristic.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inclusion & Diversity Section -->
+    <section id="inclusion-diversity" class="py-20 bg-[#22c55e] pattern-bg">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-black text-white text-lowercase mb-8"
+            data-aos="fade-up"
+          >
+            inclusion & diversity
+          </h2>
+          <p
+            class="text-xl text-white max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            We believe that diverse teams create better products and a better
+            world.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="card-hover rounded-3xl p-8 text-center"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-globe text-3xl text-[#22c55e]"></i>
+            </div>
+            <h3 class="text-xl font-black text-white text-lowercase mb-4">
+              global perspective
+            </h3>
+            <p class="text-white text-sm">
+              embracing different cultures and viewpoints
+            </p>
+          </div>
+          <div
+            class="card-hover rounded-3xl p-8 text-center"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-heart text-3xl text-[#22c55e]"></i>
+            </div>
+            <h3 class="text-xl font-black text-white text-lowercase mb-4">
+              inclusive culture
+            </h3>
+            <p class="text-white text-sm">
+              creating a welcoming environment for all
+            </p>
+          </div>
+          <div
+            class="card-hover rounded-3xl p-8 text-center"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-lightbulb text-3xl text-[#22c55e]"></i>
+            </div>
+            <h3 class="text-xl font-black text-white text-lowercase mb-4">
+              diverse ideas
+            </h3>
+            <p class="text-white text-sm">
+              valuing different perspectives and experiences
+            </p>
+          </div>
+          <div
+            class="card-hover rounded-3xl p-8 text-center"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div
+              class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-hands-helping text-3xl text-[#22c55e]"></i>
+            </div>
+            <h3 class="text-xl font-black text-white text-lowercase mb-4">
+              equal opportunity
+            </h3>
+            <p class="text-white text-sm">
+              ensuring fair access to opportunities
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gender Pay Gap Section -->
+    <section id="gender-pay-gap" class="py-20 bg-[#c8102e]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-4xl md:text-5xl font-black text-white text-lowercase mb-8"
+            data-aos="fade-up"
+          >
+            gender pay gap
+          </h2>
+          <p
+            class="text-xl text-white max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            We're committed to transparency and working towards equal pay for
+            equal work.
+          </p>
+        </div>
+
+        <div
+          class="bg-[#22c55e] rounded-3xl p-12 text-center"
+          data-aos="fade-up"
+        >
+          <h3 class="text-3xl font-black text-white text-lowercase mb-8">
+            our commitment
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white/20 rounded-2xl p-6">
+              <h4 class="text-2xl font-bold text-white mb-2">transparency</h4>
+              <p class="text-white">
+                We publish our gender pay gap data annually
+              </p>
+            </div>
+            <div class="bg-white/20 rounded-2xl p-6">
+              <h4 class="text-2xl font-bold text-white mb-2">action</h4>
+              <p class="text-white">We actively work to close any pay gaps</p>
+            </div>
+            <div class="bg-white/20 rounded-2xl p-6">
+              <h4 class="text-2xl font-bold text-white mb-2">progress</h4>
+              <p class="text-white">We track and report on our progress</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <h5 class="text-lg font-semibold mb-6 text-lowercase">A Bit About Us</h5>
-                    <ul class="space-y-3">
-                        <li><a href="about.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">The Story</a></li>
-                        <li><a href="b-corp.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">B-Corp</a></li>
-                        <li><a href="about.html#blender" class="text-gray-300 hover:text-zobo-green-400 transition-colors">The Zobolender</a></li>
-                        <li><a href="nutrition.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Nutrition</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-6 text-lowercase">Things We Make</h5>
-                    <ul class="space-y-3">
-                        <li><a href="products.html#smoothies" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Smoothies</a></li>
-                        <li><a href="products.html#super-smoothies" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Super Smoothies</a></li>
-                        <li><a href="products.html#juices" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Juices</a></li>
-                        <li><a href="products.html#plus" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Zobolicious Plus</a></li>
-                        <li><a href="products.html#bubbles" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Bubbles</a></li>
-                        <li><a href="products.html#kids" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Kids</a></li>
-                        <li><a href="products.html#coconut" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Coconut Water</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-6 text-lowercase">Things We Do For The Planet</h5>
-                    <ul class="space-y-3">
-                        <li><a href="planet.html#recycling" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Recycling Activists</a></li>
-                        <li><a href="planet.html#farming" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Farming Champions</a></li>
-                        <li><a href="planet.html#climate" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Climate Changers</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-6 text-lowercase">Things We Do For People</h5>
-                    <ul class="space-y-3">
-                        <li><a href="people.html#inclusion" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Inclusion & Diversity</a></li>
-                        <li><a href="people.html#human-rights" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Human Rights</a></li>
-                        <li><a href="people.html#gender-pay" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Gender Pay Gap</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <hr class="border-gray-700 mb-8">
-            
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                <div class="flex flex-wrap gap-6 mb-4 md:mb-0">
-                    <a href="careers.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Fancy a job?</a>
-                    <a href="contact.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Get in touch</a>
-                    <a href="faqs.html" class="text-gray-300 hover:text-zobo-green-400 transition-colors">FAQs</a>
-                    <a href="legal.html#modern-slavery" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Modern Slavery</a>
-                    <a href="legal.html#privacy" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Privacy Policy</a>
-                    <a href="legal.html#terms" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Terms of Use</a>
-                    <a href="legal.html#cookies" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Cookie Policy</a>
-                    <a href="legal.html#owner" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Our Owner</a>
-                    <a href="legal.html#tax" class="text-gray-300 hover:text-zobo-green-400 transition-colors">Tax Policy</a>
-                </div>
-                <div class="text-gray-400 text-sm">
-                    © 2025 Zobolicious Limited. All rights reserved. Zobolicious and the Zobo logo are registered trademarks of Zobolicious Limited.
-                </div>
-            </div>
+    <footer class="bg-slate-900 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-lowercase">
+              a bit about us
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="about.html"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >our story</a
+                >
+              </li>
+              <li>
+                <a
+                  href="founder.html"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >founder</a
+                >
+              </li>
+              <li>
+                <a
+                  href="b-corp.html"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >b-corp</a
+                >
+              </li>
+              <li>
+                <a
+                  href="promise.html"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >our promise</a
+                >
+              </li>
+              <li>
+                <a
+                  href="nutrition.html"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >nutrition</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-lowercase">
+              things we make
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="products.html#smoothies"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >smoothies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#super-smoothies"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >super smoothies</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#juices"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >juices</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#zobo-plus"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >zobo plus</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#bubbles"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >bubbles</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#kids"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >kids</a
+                >
+              </li>
+              <li>
+                <a
+                  href="products.html#coconut-water"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >coconut water</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-lowercase">
+              things we do for planet
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="planet.html#recycling-activists"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >recycling activists</a
+                >
+              </li>
+              <li>
+                <a
+                  href="planet.html#farming-champions"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >farming champions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="planet.html#climate-changers"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >climate changers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-lowercase">
+              things we do for people
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="people.html#inclusion-diversity"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >inclusion & diversity</a
+                >
+              </li>
+              <li>
+                <a
+                  href="people.html#human-rights"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >human rights</a
+                >
+              </li>
+              <li>
+                <a
+                  href="people.html#gender-pay-gap"
+                  class="text-slate-300 hover:text-white transition-colors"
+                  >gender pay gap</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
+        <div class="mt-12 pt-8 border-t border-slate-700 text-center">
+          <p class="text-slate-400">
+            © 2025 Zobolicious. All rights reserved. stop looking at my bottom
+          </p>
+        </div>
+      </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-zobo-green-600 hover:bg-zobo-green-700 text-white rounded-full shadow-lg opacity-0 invisible transition-all duration-300 z-50">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.add('opacity-0', 'invisible');
-                backToTopButton.classList.remove('opacity-100', 'visible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Mobile menu toggle
+      document
+        .getElementById("mobile-menu-button")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobile-menu");
+          mobileMenu.classList.toggle("hidden");
         });
     </script>
-</body>
+  </body>
 </html>
